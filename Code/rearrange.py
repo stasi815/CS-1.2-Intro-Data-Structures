@@ -13,7 +13,7 @@ def rearrange_words(params):
             random_list.append(random_word) # add random words to new list
 
 
-    print(" ".join(random_list)) # print the list as a concatinated string with spaces in between 
+    print(" ".join(random_list)) # print the list as a concatinated string with spaces in between
 
 
 if __name__ == "__main__":
