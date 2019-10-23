@@ -9,10 +9,10 @@ def get_random_word():
 
 def sentence_build(params):
     list_one = [] # list of randomly chosen words from file
-    list_two = []
+    # list_two = []
 
     count = 0
-
+    # takes in int(params) and adds a word one at a time to list_one until number of params is reached
     while count < int(params):
         list_one.append(get_random_word())
         count += 1
