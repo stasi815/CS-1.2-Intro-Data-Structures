@@ -3,14 +3,14 @@ import sys
 
 
 def rearrange_words(params):
-    word_list = []
-    word_list = params # establishes that input will be from terminal
+    word_list = params.copy() # establishes that input will be from terminal
     random_list = [] # new list made from random picks out of word_list
 
-    while len(random_list) < len(word_list): # stop doing this function after all words entered have been randomly returned
-        random_word = random.choice(params) #choose random word from params
-        if random_word not in random_list: # don't repeat a word that has already been chosen
-            random_list.append(random_word) # add random words to new list
+    while len(word_list) > 0: # stop doing this function after all words entered have been randomly returned
+        random_word = random.choice(word_list) #choose random word from params
+        random_list.append(random_word) # add random words to new list
+        word_list.remove(random_word)
+
 
 
     print(" ".join(random_list)) # print the list as a concatinated string with spaces in between
