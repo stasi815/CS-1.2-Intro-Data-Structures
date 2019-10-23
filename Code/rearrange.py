@@ -1,19 +1,25 @@
 import random
 import sys
 
-if __name__ == "__main__":
+
+def rearrange_words(params):
     word_list = []
+    word_list = params # establishes that input will be from terminal
+    random_list = [] # new list made from random picks out of word_list
+
+    while len(random_list) < len(word_list): # stop doing this function after all words entered have been randomly returned
+        random_word = random.choice(params) #choose random word from params
+        if random_word not in random_list: # don't repeat a word that has already been chosen
+            random_list.append(random_word) # add random words to new list
+
+
+    print(" ".join(random_list)) # print the list as a concatinated string with spaces in between 
+
+
+if __name__ == "__main__":
     params = sys.argv[1:]
-    word_one = str(params[0])
-    word_two = str(params[1])
-    word_three = str(params[2])
-    word_four = str(params[3])
-
-    word_list.append(word_one)
-    word_list.append(word_two)
-    word_list.append(word_three)
-    word_list.append(word_four)
+    rearrange_words(params)
 
 
-    random.shuffle(word_list)
-    print(word_list)
+
+
