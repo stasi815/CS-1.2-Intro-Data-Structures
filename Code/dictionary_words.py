@@ -1,20 +1,32 @@
 import random
 import sys
+import time
 
-def get_random_word():
+def time_it(func):
+    # Made wth love by Ben <3 - DS2.3
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(func.__name__ + ' took ' + str((end - start) * 10000) + ' ms')
+        return result
+
+    return wrapper
+
+def load_dictionary():
     with open('/usr/share/dict/words', 'r') as f:
         words_list = f.read().splitlines() # read text file
-    random_word = random.choice(words_list) # get random word from file
-    return random_word
+    return words_list
 
-def sentence_build(params):
+
+@time_it
+def sentence_build(words_list, params):
     list_one = [] # list of randomly chosen words from file
-    # list_two = []
-
     count = 0
-    # takes in int(params) and adds a word one at a time to list_one until number of params is reached
+
     while count < int(params):
-        list_one.append(get_random_word())
+        random_word = random.choice(words_list) # get random word from file
+        list_one.append(random_word)
         count += 1
 
     print(" ".join(list_one) + ".")
@@ -25,5 +37,6 @@ def sentence_build(params):
 
 if __name__ == "__main__":
     params = sys.argv[1]
-    sentence_build(params)
+    words_list = load_dictionary() # only opens file once per run
+    sentence_build(words_list, params)
 
