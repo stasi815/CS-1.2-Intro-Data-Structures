@@ -1,5 +1,5 @@
 def load_text():
-    with open('/Users/makeschoolloaner/dev/CS1.2/CS-1.2-Intro-Data-Structures/Code/parks_and_rec_test.txt', 'r') as f:
+    with open('/Users/makeschoolloaner/dev/CS1.2/CS-1.2-Intro-Data-Structures/Code/parks_and_rec.txt', 'r') as f:
         doc_text = f.read().splitlines()
         source_text = ((" ".join(doc_text)).lower()).split()
     return source_text
