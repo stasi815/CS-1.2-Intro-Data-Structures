@@ -18,8 +18,21 @@ def dict_histogram(source_text):
 
 
 def tuple_histogram(source_text):
+    pass
 
-# def list_histogram(source_text):
+def list_histogram(source_text):
+    histogram = []
+    add_word = True
+    for word in source_text:
+        for list_item in histogram:
+            if list_item[0] == word:
+                list_item[1] += 1
+                add_word = False
+        if add_word is True:
+            histogram.append([word, 1])
+        add_word = True
+
+    return histogram
 
 def unique_words(histogram):
     num_words = len(histogram)
@@ -32,7 +45,8 @@ def frequency(word, histogram):
 
 if __name__ == "__main__":
     source_text = load_text()
-    histogram = dict_histogram(source_text)
+    # histogram = dict_histogram(source_text)
+    histogram = list_histogram(source_text)
     print(histogram)
     print(unique_words(histogram))
-    print(frequency('the', histogram))
+    # print(frequency('cow', histogram))
