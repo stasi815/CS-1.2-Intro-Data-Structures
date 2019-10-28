@@ -17,15 +17,22 @@ def dict_histogram(source_text):
     return histogram
 
 
-# def tuple_histogram(source_text):
+def tuple_histogram(source_text):
 
 # def list_histogram(source_text):
 
-# def unique_words(histogram):
+def unique_words(histogram):
+    num_words = len(histogram)
+    return num_words
 
-# def frequency(word, histogram):
+def frequency(word, histogram):
+
+    return histogram.get(word, 'Word not in text.')
 
 
 if __name__ == "__main__":
     source_text = load_text()
-    print(dict_histogram(source_text))
+    histogram = dict_histogram(source_text)
+    print(histogram)
+    print(unique_words(histogram))
+    print(frequency('the', histogram))
