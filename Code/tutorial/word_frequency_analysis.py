@@ -60,7 +60,7 @@ def frequency(word, histogram):
 
 
 if __name__ == "__main__":
-    filename = '/Users/makeschoolloaner/dev/CS1.2/CS-1.2-Intro-Data-Structures/Code/tutorial/corpus_texts/parks_and_rec.txt'
+    filename = 'corpus_texts/parks_and_rec.txt'
     source_text = load_text(filename)
     histogram = dict_histogram(source_text)
     # histogram = list_histogram(source_text)
