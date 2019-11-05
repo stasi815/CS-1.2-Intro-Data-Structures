@@ -20,7 +20,7 @@ def rand_sentence_generator():
         word_list.append(random_word)
         count += 1
 
-    random_sentence = " ".join(word_list) + "."
+    random_sentence = " ".join(word_list).capitalize() + "."
     return render_template("index.html", sentence=random_sentence)
     # return f"{ random_sentence }"
 
