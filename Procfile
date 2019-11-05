@@ -1,1 +1,1 @@
-web: gunicorn Code.tutorial.app:app
+web: gunicorn Code.tutorial app:app
