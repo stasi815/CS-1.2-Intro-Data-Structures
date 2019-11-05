@@ -1,4 +1,5 @@
 def load_text(filename):
+    """Opens text file and splits in into lowercase words for use."""
     with open(filename, 'r') as f:
         doc_text = f.read().splitlines()
         source_text = ((" ".join(doc_text)).lower()).split()
@@ -16,6 +17,16 @@ def dict_histogram(source_text):
             histogram[word] += 1
 
     return histogram
+
+def unique_words(histogram):
+    """Returns the number of unique words in a text file."""
+    num_words = len(histogram)
+    return num_words
+
+def frequency(word, histogram):
+    """Gets 'frequency' value from 'word' key in dictionary."""
+    word_freq = histogram.get(word, 'Word not in text.')
+    return word_freq
 
 
 # def tuple_histogram(source_text):
@@ -50,20 +61,13 @@ def dict_histogram(source_text):
 
 #     return histogram
 
-def unique_words(histogram):
-    num_words = len(histogram)
-    return num_words
-
-def frequency(word, histogram):
-    word_freq = histogram.get(word, 'Word not in text.')
-    return word_freq
-
 
 if __name__ == "__main__":
     filename = 'corpus_texts/parks_and_rec.txt'
     source_text = load_text(filename)
     histogram = dict_histogram(source_text)
-    # histogram = list_histogram(source_text)
     print(histogram)
     print(unique_words(histogram))
-    # print(frequency('cow', histogram))
+    print(frequency('the', histogram))
+    # histogram = list_histogram(source_text)
+

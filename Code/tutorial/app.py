@@ -9,11 +9,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def rand_sentence_generator():
+    """Returns a random sentence based on weighted word probability."""
     filename = 'Code/tutorial/corpus_texts/parks_and_rec.txt'
     source_text = load_text(filename)
     histogram = dict_histogram(source_text)
-    word_prob = Code.tutorial.histogram_sentence.word_prob_list(histogram)
-
     word_list = []
     count = 0
     while count < randint(5, 15):
