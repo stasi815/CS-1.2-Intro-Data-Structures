@@ -1,4 +1,4 @@
-from word_frequency_analysis import dict_histogram, load_text, unique_words, frequency
+from Code.tutorial.word_frequency_analysis import dict_histogram, load_text, unique_words, frequency
 from random import uniform
 from fractions import Fraction
 

@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from random import randint, uniform
-from word_frequency_analysis import load_text, dict_histogram
-import histogram_sentence
+from Code.tutorial.word_frequency_analysis import load_text, dict_histogram
+import Code.tutorial.histogram_sentence
 
 
 
@@ -16,7 +16,7 @@ def rand_sentence_generator():
     word_list = []
     count = 0
     while count < randint(5, 15):
-        random_word = histogram_sentence.weighted_word(histogram)
+        random_word = Code.tutorial.histogram_sentence.weighted_word(histogram)
         word_list.append(random_word)
         count += 1
 
