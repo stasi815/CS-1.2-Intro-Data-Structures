@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from random import randint, uniform
-from word_frequency_analysis import load_text, dict_histogram
-import histogram_sentence
+from Code/tutorial/word_frequency_analysis import load_text, dict_histogram
+import Code/tutorial/histogram_sentence
 
 
 
