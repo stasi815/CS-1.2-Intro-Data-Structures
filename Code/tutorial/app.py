@@ -22,7 +22,7 @@ def rand_sentence_generator():
         count += 1
 
     random_sentence = " ".join(word_list) + "."
-    return render_template("index.html", string=random_sentence)
+    return render_template("index.html", sentence=random_sentence)
     # return f"{ random_sentence }"
 
 
