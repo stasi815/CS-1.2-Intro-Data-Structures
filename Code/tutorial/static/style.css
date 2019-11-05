@@ -1,3 +1,8 @@
 .index-img {
-    
+    background-color: rgb(21, 82, 82);
+}
+
+.container-fluid {
+    background-color: rgb(21, 82, 82);
+    align-content: center;
 }
