@@ -1,1 +1,1 @@
-web: gunicorn Code.tutorial app:app
+web: gunicorn --chdir Code.tutorial app:app
