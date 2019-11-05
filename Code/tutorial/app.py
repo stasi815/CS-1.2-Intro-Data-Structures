@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from random import randint, uniform
 from word_frequency_analysis import load_text, dict_histogram
 import histogram_sentence
@@ -22,7 +22,8 @@ def rand_sentence_generator():
         count += 1
 
     random_sentence = " ".join(word_list) + "."
-    return f"{ random_sentence }"
+    return render_template("index.html", string=random_sentence)
+    # return f"{ random_sentence }"
 
 
 if __name__ == '__main__':
