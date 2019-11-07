@@ -47,7 +47,7 @@ def frequency(word, histogram):
 
 
 # def list_histogram(source_text):
-#     """ Nested array histogram. Search cost in comparison to dictionary format."""
+#     """ Nested array histogram. Search "cost" in comparison to dictionary format."""
 #     histogram = []
 #     add_word = True
 #     for word in source_text:
