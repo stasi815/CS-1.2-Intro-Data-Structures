@@ -26,8 +26,8 @@ class Listogram(list):
                 add_word = False
         if add_word is True:
             self.append([word, count])
-            self.types += 1
-        self.tokens += count
+            self.types += 1 # calculates number of unique words because they each occur once
+        self.tokens += count #calculates total number of words in histo included repeats
 
         # index = self.index_of(word)
         # if index is not None:
