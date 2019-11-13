@@ -3,10 +3,9 @@ import histogram_sentence
 from word_frequency_analysis import load_text
 import random
 
-def key_histos(word_list):
+def markov_histo(word_list):
+    '''Creates histogram that represents markov chain for each word in a list.'''
     histo = {}
-
-
     for i in range(len(word_list)-1):
         key_word = word_list[i]
         next_key_word = word_list[i + 1]
@@ -15,21 +14,21 @@ def key_histos(word_list):
             key_histo = []
             histo[key_word] = key_histo
             # STINE TESTING Thank you Aucoeur!!
-            # print(histo)
 
         histo[key_word].append(next_key_word)
-        # print(key_histo)
-        # print(histo)
 
     value_list = histo.items()
     for key, value in value_list:
-        # print(value)
         histo[key] = Dictogram(value)
-        # print(histo[key])
 
     return histo
 
-
+def markov_run(markov_histos):
+    keys_list = markov_histos.keys()
+    first_word = random.choice(list(keys_list))
+    # first_word = 'fish'
+    markov_key = markov_histos.get(first_word)
+    return(markov_key.sample())
 
 
 def print_histogram(word_list):
@@ -66,11 +65,9 @@ def main():
     #     print_histogram(woodchuck_text.split())
     filename = "corpus_texts/one_fish_two.txt"
     word_list = load_text(filename)
-    histogram = Dictogram(word_list)
-    print(histogram)
-    print(word_list)
-    # print(key_histos(word_list))
-    print(key_histos(word_list))
+    markov_histos = markov_histo(word_list)
+    print(markov_histos)
+    print(markov_run(markov_histos))
 
 
 if __name__ == '__main__':
