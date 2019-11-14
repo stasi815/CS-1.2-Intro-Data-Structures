@@ -3,10 +3,10 @@
 
 class Node(object):
 
-    def __init__(self, data):
+    def __init__(self, data, next=None):
         """Initialize this node with the given data."""
-        self.data = data
-        self.next = None
+        self.data = data # assign data
+        self.next = next # initializes next as null
 
     def __repr__(self):
         """Return a string representation of this node."""
@@ -56,18 +56,44 @@ class LinkedList(object):
         """Return the length of this linked list by traversing its nodes.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all nodes and count one for each
+        count = 0
+
+        for node in self.items():
+            count += 1
+        return count
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
         TODO: Running time: O(???) Why and under what conditions?"""
-        # TODO: Create new node to hold given item
+
         # TODO: Append node after tail, if it exists
+        new_node = Node(item) # Create new node to hold given item
+
+        if self.is_empty():
+            self.head = new_node
+        if self.tail is not None:
+            self.tail.next = new_node
+        self.tail = new_node
+
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Create new node to hold given item
         # TODO: Prepend node before head, if it exists
+        # got help from https://www.geeksforgeeks.org/find-length-of-a-linked-list-iterative-and-recursive/
+
+        # new_node.next = self.head #make next of new node as head
+
+        # self.head = new_node # make head pint to the new Node
+        
+        new_node = Node(item) # create new node and put in item
+        if self.is_empty():
+            self.tail = new_node
+        else:
+            
+        self.head = Node(item, next=self.head)
+
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
