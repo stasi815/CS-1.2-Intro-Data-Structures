@@ -36,7 +36,7 @@ class LinkedList(object):
     def items(self):
         """Return a list (dynamic array) of all items in this linked list.
         Best and worst case running time: O(n) for n items in the list (length)
-        because we always need to loop through all n nodes to get each item."""
+        because we always need to loop through all n nodes to get each item. Traverses linked list."""
         items = []  # O(1) time to create empty list
         # Start at head node
         node = self.head  # O(1) time to assign new variable
@@ -79,28 +79,28 @@ class LinkedList(object):
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
         TODO: Running time: O(???) Why and under what conditions?"""
-        # TODO: Create new node to hold given item
-        # TODO: Prepend node before head, if it exists
+
         # got help from https://www.geeksforgeeks.org/find-length-of-a-linked-list-iterative-and-recursive/
 
-        # new_node.next = self.head #make next of new node as head
-
-        # self.head = new_node # make head pint to the new Node
-        
         new_node = Node(item) # create new node and put in item
         if self.is_empty():
-            self.tail = new_node
+            self.tail = new_node # new_node becomes head and tail if list in empty
         else:
-            
-        self.head = Node(item, next=self.head)
+            new_node.next = self.head # make new node's next reference point to "current" head
+
+        self.head = new_node # make head reference point to the new Node was was prepended
 
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
+        # quality function returns True or False,check is this one the one I want, checking node's data
         TODO: Best case running time: O(???) Why and under what conditions?
         TODO: Worst case running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all nodes to find item where quality(item) is True
         # TODO: Check if node's data satisfies given quality function
+        # if quality(node.data) is True:
+            # return node.data
+
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.

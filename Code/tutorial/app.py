@@ -1,8 +1,8 @@
 from flask import Flask, render_template
 from random import randint, uniform
-from word_frequency_analysis import load_text, dict_histogram
+from Code.tutorial.word_frequency_analysis import load_text, dict_histogram
 # import Code.tutorial.histogram_sentence
-from markov_chain import markov_histo, markov_run
+from Code.tutorial.markov_chain import markov_histo, markov_run
 
 
 
@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route('/')
 def rand_sentence_generator():
     """Returns a random sentence based on weighted word probability."""
-    filename = 'corpus_texts/parks_and_rec.txt'
+    filename = 'Code/tutorial/corpus_texts/parks_and_rec.txt'
     word_list = load_text(filename)
     markov_histos = markov_histo(word_list)
 
