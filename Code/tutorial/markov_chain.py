@@ -1,6 +1,6 @@
-from dictogram import Dictogram, print_histogram
-import histogram_sentence
-from word_frequency_analysis import load_text
+from Code.tutorial.dictogram import Dictogram, print_histogram
+import Code.tutorial.histogram_sentence
+from Code.tutorial.word_frequency_analysis import load_text
 import random
 
 def markov_histo(word_list):
@@ -30,21 +30,6 @@ def markov_run(markov_histos):
     markov_key = markov_histos.get(first_word)
     return(markov_key.sample())
 
-
-def print_histogram(word_list):
-    print()
-    print('Histogram:')
-    print('word list: {}'.format(word_list))
-    # Create a dictogram and display its contents
-    histogram = Dictogram(word_list)
-    print('dictogram: {}'.format(histogram))
-    print('{} tokens, {} types'.format(histogram.tokens, histogram.types))
-    for word in word_list[-2:]:
-        freq = histogram.frequency(word)
-        print('{!r} occurs {} times'.format(word, freq))
-    print()
-    print_histogram_samples(histogram)
-    pass
 
 def main():
     # import sys
