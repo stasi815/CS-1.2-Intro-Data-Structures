@@ -12,13 +12,13 @@ app = Flask(__name__)
 def rand_sentence_generator():
     """Returns a random sentence based on weighted word probability."""
     filename = 'Code/tutorial/corpus_texts/parks_and_rec.txt'
-    word_list = Code.tutorial.word_frequency_analysis.load_text(filename)
-    markov_histos = Code.tutorial.markov_chain.markov_histo(word_list)
+    word_list = load_text(filename)
+    markov_histos = markov_histo(word_list)
 
     word_list = []
     count = 0
     while count < randint(5, 15):
-        random_word = Code.tutorial.markov_chain.markov_run(markov_histos)
+        random_word = markov_run(markov_histos)
 
         word_list.append(random_word)
         count += 1
