@@ -54,7 +54,7 @@ class LinkedList(object):
 
     def length(self):
         """Return the length of this linked list by traversing its nodes.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        TODO: Running time: O(???) Why and under what conditions? loop, indefinite"""
         # TODO: Loop through all nodes and count one for each
         count = 0
 
@@ -64,7 +64,7 @@ class LinkedList(object):
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        TODO: Running time: O(???) Why and under what conditions? one condition, no loop"""
 
         # TODO: Append node after tail, if it exists
         new_node = Node(item) # Create new node to hold given item
@@ -78,7 +78,7 @@ class LinkedList(object):
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        TODO: Running time: O(???) Why and under what conditions? one condition, no loop"""
 
         # got help from https://www.geeksforgeeks.org/find-length-of-a-linked-list-iterative-and-recursive/
 
@@ -94,8 +94,8 @@ class LinkedList(object):
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
         # quality function returns True or False,check is this one the one I want, checking node's data
-        TODO: Best case running time: O(???) Why and under what conditions?
-        TODO: Worst case running time: O(???) Why and under what conditions?"""
+        TODO: Best case running time: O(???) Why and under what conditions? 1 item
+        TODO: Worst case running time: O(???) Why and under what conditions? indefinite""" 
         # TODO: Loop through all nodes to find item where quality(item) is True
         # TODO: Check if node's data satisfies given quality function
         node = self.head
@@ -107,29 +107,32 @@ class LinkedList(object):
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
-        TODO: Best case running time: O(???) Why and under what conditions?
-        TODO: Worst case running time: O(???) Why and under what conditions?"""
+        TODO: Best case running time: O(???) Why and under what conditions? one item
+        TODO: Worst case running time: O(???) Why and under what conditions? indefinite amt"""
         # TODO: Loop through all nodes to find one whose data matches given item
         # TODO: Update previous node to skip around node with matching data
         # TODO: Otherwise raise error to tell user that delete has failed
         # Hint: raise ValueError('Item not found: {}'.format(item))
         node = self.head
         previous = None
-
-        if self.head.data == item:
-            self.head == node.next
-            return f'removed {node.data}'
-
-        while node is not None:
-            current = node
-
-            if node.data == item:
-                previous.next = current.next
-                return f'removed {node.data}'
+        while node is not None: # loops over list as long as there are items
+            if node.data == item: # if the node.data matches item
+                if previous == None: # and it's the head
+                    self.head = node.next # move head to next item
+                    if node.next == None: # if head is also tail
+                        self.tail = None # set tail to None
+                elif node.next == None: # otherwise if item is just the tail
+                    previous.next = None # set the previous item's next to NOne
+                    self.tail = previous # make the previous item the tail
+                elif node.data == item: # for all other cases 
+                    previous.next = node.next # set previous node's next reference to next
+                return
             else:
-                previous = current
+                previous = node # keep searching
                 node = node.next
-        return f"Item not found: {item}"
+
+
+        raise ValueError(f"Item not found: {item}")
 
 
 
