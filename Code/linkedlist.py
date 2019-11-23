@@ -72,7 +72,7 @@ class LinkedList(object):
         if self.is_empty():
             self.head = new_node
         if self.tail is not None:
-            self.tail.next = new_node
+            self.tail.next = new_node #use self.tail's next pointer before we change tail reference
         self.tail = new_node
 
 
@@ -124,7 +124,7 @@ class LinkedList(object):
                 elif node.next == None: # otherwise if item is just the tail
                     previous.next = None # set the previous item's next to NOne
                     self.tail = previous # make the previous item the tail
-                elif node.data == item: # for all other cases 
+                elif node.data == item: # for all other cases
                     previous.next = node.next # set previous node's next reference to next
                 return
             else:
@@ -134,6 +134,15 @@ class LinkedList(object):
 
         raise ValueError(f"Item not found: {item}")
 
+    def replace(self, old_item, new_item):
+        node = self.head
+
+        while node is not None:
+            if node.data == old_item:
+                node.data = new_item
+                return
+            else:
+                node = node.next
 
 
 def test_linked_list():
