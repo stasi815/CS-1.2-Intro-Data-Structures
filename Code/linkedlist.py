@@ -64,7 +64,7 @@ class LinkedList(object):
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
-        TODO: Running time: O(1) Why and under what conditions? one condition, no loop"""
+        TODO: Running time: O(1) Why and under what conditions? one condition, no loop, constant time"""
 
         # TODO: Append node after tail, if it exists
         new_node = Node(item) # Create new node to hold given item
@@ -78,7 +78,7 @@ class LinkedList(object):
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
-        TODO: Running time: O(1) Why and under what conditions? one condition, no loop"""
+        TODO: Running time: O(1) Why and under what conditions? one condition, no loop, constant time"""
 
         # got help from https://www.geeksforgeeks.org/find-length-of-a-linked-list-iterative-and-recursive/
 
