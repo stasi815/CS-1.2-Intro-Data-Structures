@@ -31,10 +31,6 @@ def ho_markov_histo(word_list):
         next_key_word = word_list[i + 1]
         new_key = (key_word, next_key_word)
 
-
-
-        print(i, new_key)
-
         if i+2 < len(word_list):
             next_next_key = word_list[i + 2]
 
@@ -54,7 +50,6 @@ def ho_markov_histo(word_list):
 def markov_run(markov_histos):
     keys_list = markov_histos.keys()
     first_word = random.choice(list(keys_list))
-    # first_word = 'fish'
     markov_key = markov_histos.get(first_word)
     return(markov_key.sample())
 
@@ -79,8 +74,8 @@ def main():
     filename = "corpus_texts/one_fish_two.txt"
     word_list = load_text(filename)
     markov_histos = ho_markov_histo(word_list)
-    # print(markov_histos)
-    # print(markov_run(markov_histos))
+    print(markov_histos)
+    print(markov_run(markov_histos))
 
 
 if __name__ == '__main__':
