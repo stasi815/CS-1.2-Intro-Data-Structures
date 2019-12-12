@@ -13,8 +13,8 @@ def rand_sentence_generator():
     filename = 'corpus_texts/bhagavad_gita.txt'
     word_list = load_text(filename)
     markov_histos = second_order_markov_histo(word_list)
-
-    sentence = markov_run(markov_histos)
+    steps = randint(5, 15)
+    sentence = markov_run(markov_histos, steps)
 
     # word_list = []
     # count = 0
