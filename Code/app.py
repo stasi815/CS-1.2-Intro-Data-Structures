@@ -3,8 +3,6 @@ from random import randint, uniform
 from word_frequency_analysis import load_text, dict_histogram
 from markov_chain import second_order_markov_histo, markov_run
 
-
-
 app = Flask(__name__)
 
 @app.route('/')
@@ -32,4 +30,5 @@ def rand_sentence_generator():
 
 
 if __name__ == '__main__':
-    app.debug = True
+    # app.debug = True
+    app.run(debug=True, host='0.0.0.0', port=os.environ.get('POST', 5000))
