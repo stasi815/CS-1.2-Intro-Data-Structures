@@ -14,16 +14,6 @@ def rand_sentence_generator():
     steps = randint(5, 15)
     sentence = markov_run(markov_histos, steps)
 
-    # word_list = []
-    # count = 0
-    # while count < randint(5, 15):
-    #     random_word = markov_run(markov_histos)
-
-    #     word_list.append(random_word)
-    #     count += 1
-
-
-
 
     random_sentence = " ".join(sentence).capitalize() + "."
     return render_template("index.html", sentence=random_sentence)

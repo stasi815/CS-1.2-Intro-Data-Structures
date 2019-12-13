@@ -54,31 +54,31 @@ class LinkedList(object):
 
     def length(self):
         """Return the length of this linked list by traversing its nodes.
-        TODO: Running time: O(n) Why and under what conditions? loop, indefinite"""
-        # TODO: Loop through all nodes and count one for each
+        Running time: O(n) Why and under what conditions? loop, indefinite"""
         count = 0
 
-        for node in self.items():
+        for node in self.items():     # Loop through all nodes and count one for each
+
             count += 1
         return count
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
-        TODO: Running time: O(1) Why and under what conditions? one condition, no loop, constant time"""
+        Running time: O(1) Why and under what conditions? one condition, no loop, constant time"""
 
-        # TODO: Append node after tail, if it exists
         new_node = Node(item) # Create new node to hold given item
 
         if self.is_empty():
             self.head = new_node
         if self.tail is not None:
-            self.tail.next = new_node #use self.tail's next pointer before we change tail reference
-        self.tail = new_node
+            self.tail.next = new_node # use self.tail's next pointer before we change tail reference
+        self.tail = new_node        # Append node after tail, if it exists
+
 
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
-        TODO: Running time: O(1) Why and under what conditions? one condition, no loop, constant time"""
+        Running time: O(1) Why and under what conditions? one condition, no loop, constant time"""
 
         # got help from https://www.geeksforgeeks.org/find-length-of-a-linked-list-iterative-and-recursive/
 
@@ -94,25 +94,20 @@ class LinkedList(object):
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
         # quality function returns True or False,check is this one the one I want, checking node's data
-        TODO: Best case running time: O(1) Why and under what conditions? 1 item
-        TODO: Worst case running time: O(n) Why and under what conditions? indefinite"""
-        # TODO: Loop through all nodes to find item where quality(item) is True
-        # TODO: Check if node's data satisfies given quality function
+        Best case running time: O(1) Why and under what conditions? 1 item
+        Worst case running time: O(n) Why and under what conditions? indefinite"""
         node = self.head
-        while node is not None:
-            if quality(node.data) is True:
+        while node is not None:        # Loop through all nodes to find item where quality(item) is True
+            if quality(node.data) is True:        #  Check if node's data satisfies given quality function
+
                 return node.data
             else:
                 node = node.next
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
-        TODO: Best case running time: O(1) Why and under what conditions? one item
-        TODO: Worst case running time: O(n) Why and under what conditions? indefinite amt"""
-        # TODO: Loop through all nodes to find one whose data matches given item
-        # TODO: Update previous node to skip around node with matching data
-        # TODO: Otherwise raise error to tell user that delete has failed
-        # Hint: raise ValueError('Item not found: {}'.format(item))
+        Best case running time: O(1) Why and under what conditions? one item
+        Worst case running time: O(n) Why and under what conditions? indefinite amt"""
         node = self.head
         previous = None
         while node is not None: # loops over list as long as there are items

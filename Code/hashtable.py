@@ -26,7 +26,7 @@ class HashTable(object):
 
     def keys(self):
         """Return a list of all keys in this hash table.
-        TODO: Running time: O(n) Why and under what conditions? loops through both buckets and bucket items and is calculated by b * n/b"""
+        Running time: O(n) Why and under what conditions? loops through both buckets and bucket items and is calculated by b * n/b"""
         # Collect all keys in each bucket
         all_keys = []
 
@@ -37,17 +37,17 @@ class HashTable(object):
 
     def values(self):
         """Return a list of all values in this hash table.
-        TODO: Running time: O(n) Why and under what conditions?loops through both buckets and bucket items and is calculated by b * n/b"""
+        Running time: O(n) Why and under what conditions?loops through both buckets and bucket items and is calculated by b * n/b"""
         all_values = []
 
-        for bucket in self.buckets:  # TODO: Loop through all buckets
+        for bucket in self.buckets:  # Loop through all buckets
             for key, value in bucket.items():
                 all_values.append(value)
-        return all_values  # TODO: Collect all values in each bucket
+        return all_values  # Collect all values in each bucket
 
     def items(self):
         """Return a list of all items (key-value pairs) in this hash table.
-        TODO: Running time: O(n) Why and under what conditions?"""
+        Running time: O(n) Why and under what conditions?"""
         # Collect all pairs of key-value entries in each bucket
         all_items = []
 
@@ -57,22 +57,22 @@ class HashTable(object):
 
     def length(self):
         """Return the number of key-value entries by traversing its buckets.
-        TODO: Running time: O(n) Why and under what conditions?loops through both buckets and bucket items and is calculated by b * n/b"""
+        Running time: O(n) Why and under what conditions?loops through both buckets and bucket items and is calculated by b * n/b"""
         count = 0
 
-        for bucket in self.buckets: # TODO: Loop through all buckets
+        for bucket in self.buckets: # Loop through all buckets
             for item in bucket.items():
-                count += 1  # TODO: Count number of key-value entries in each bucket
+                count += 1  # Count number of key-value entries in each bucket
         return count
 
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
-        TODO: Running time: O(n/b or l) Why and under what conditions? only traverses one bucket after going through the constant time processes"""
-        bucket_index = self._bucket_index(key)  # TODO: Find bucket where given key belongs
+        Running time: O(n/b or l) Why and under what conditions? only traverses one bucket after going through the constant time processes"""
+        bucket_index = self._bucket_index(key)  # Find bucket where given key belongs
         bucket = self.buckets[bucket_index]
         item = bucket.find(lambda item: item[0] == key)
 
-        if item != None: # TODO: Check if key-value entry exists in bucket
+        if item != None: # Check if key-value entry exists in bucket
             return True
         else:
             return False

@@ -30,7 +30,6 @@ def sentence_build(words_list, params):
         count += 1
 
     print(" ".join(list_one) + ".")
-    # print(list_one)
 
 
 
