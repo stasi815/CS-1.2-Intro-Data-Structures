@@ -49,7 +49,7 @@ def second_order_markov_histo(word_list):
 
     return histo
 
-def markov_run(markov_histos, steps=10):
+def markov_run(markov_histos, steps):
     keys_list = markov_histos.keys() # makes list of tupled words
     first_tuple = random.choice(list(keys_list)) # picks random tuple of words to begin sentence
     markov_key = markov_histos.get(first_tuple) # dictogram values for selected tuple
@@ -64,7 +64,6 @@ def markov_run(markov_histos, steps=10):
     next_tuple = (second_word, next_word)
 
     sentence.append(next_word)
-
 
     i = 2
     while i != steps:
